@@ -1,0 +1,10 @@
+---
+# Bind port
+httpd_port: 80
+
+# Packages for installing Web service
+httpd_packages:
+  - httpd
+
+# Use for virtualhost ServerName and DocumentRoot
+httpd_domain: ''

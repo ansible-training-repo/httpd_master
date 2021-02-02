@@ -1,0 +1,10 @@
+# {{ ansible_managed }}
+Listen {{ httpd_port }}
+<VirtualHost *:{{ httpd_port }}>
+    ServerName www.{{ httpd_domain }}
+    DocumentRoot /var/www/{{ httpd_domain }}/
+    <Directory /var/www/{{ httpd_domain }}/>
+      AllowOverride All
+      Allow from all
+    </Directory>
+</VirtualHost>

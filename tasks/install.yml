@@ -1,0 +1,5 @@
+---
+- name: Install httpd packages
+  package:
+    name: "{{ httpd_packages }}"
+    state: present

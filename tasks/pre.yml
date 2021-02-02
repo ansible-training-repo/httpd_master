@@ -1,0 +1,16 @@
+---
+- name: Test variables are OK
+  assert:
+    that:
+      - httpd_port is defined
+      - httpd_port is number
+      - httpd_packages is defined
+      - httpd_packages is sequence
+      - httpd_packages | length > 0
+      - httpd_packages | reject('string') | list | length == 0
+      - httpd_domain | default(false)
+      - httpd_domain is string
+    fail_msg: |
+      httpd_port: {{ httpd_port | default('undef') }}
+      httpd_packages: {{ httpd_packages | default('undef') }}
+      httpd_domain: {{ httpd_domain | default('undef') }}
